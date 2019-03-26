@@ -357,11 +357,11 @@ For a slightly enhanced alternative version, run `python completed.py` &mdash; i
 
 The name search remains the same.
 
-To add this functionality, the following were added or changed:
+**To add this functionality,** the following were added or changed [in this app file](final_app/completed.py):
 
-* One new property was added in the `SearchForm` class &mdash; `category`.
-* One new line was added to the `search()` function, in the `if request.method == "POST":` block &mdash; <br>`category = request.form.get("category")`
-* In the `search()` function, the line `if text.lower() in president['President'].lower():` was changed to <br>`if text.lower() in president[category].lower():`
+* One new property was added in the `SearchForm` class &mdash; `category` (line 24).
+* One new line was added to the `search()` function, in the `if request.method == "POST":` block &mdash; <br>`category = request.form.get("category")` (line 71).
+* In the `search()` function, the line `if text.lower() in president['President'].lower():` was changed to <br>`if text.lower() in president[category].lower():` (line 77).
 
 THAT IS ALL.
 
