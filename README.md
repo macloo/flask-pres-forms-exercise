@@ -6,9 +6,24 @@ For this exercise, you will need the following **installed** in a Python 3.x vir
 * Flask-WTF
 * Flask-Bootstrap4
 
+## Table of Contents
+
+* [Get started](#get-started)
+* [Examine the search-page template](#examine-the-search-page-template)
+* [Make changes to the Flask app](#make-changes-to-the-flask-app)
+   * [Add more import statements](#add-more-import-statements)
+   * [Add a secret key and the Bootstrap function](#add-a-secret-key-and-the-bootstrap-function)
+   * [Create a new form class](#create-a-new-form-class)
+   * [Write a new route function](#write-a-new-route-function)
+   * [What does the function do, so far?](#what-does-the-function-do-so-far)
+   * [Make the search work](#make-the-search-work)
+   * [Determine what will be returned](#determine-what-will-be-returned)
+   * [Three different return statements](#three-different-return-statements)
+* [Conclusion](#conclusion)
+
 This exercise *builds on* [a previous one](https://github.com/macloo/flask-exercise), in which a Flask app read a CSV file with data about 45 U.S. presidents and built a separate page for each of them. Here, we begin with a completed version of that exercise.
 
-In that earlier exercise, the CSV was converted into a list of Python dictionaries. From that list, an index page was generated. On the index page, all the presidents' names appeared as links. Click a name to open a page about that president.
+In that earlier exercise, the CSV was converted into a list of Python dictionaries. From that list, an index page was generated. On the index page, all the presidents' names appeared as links. Click a name to open a page about that president. [Try it here.](https://weimergeeks.com/flask_pres/)
 
 In THIS exercise, we will add a **search page** so that a user can type all or part of any president's name and get either a president's page (if only one match is found) or a list of matching presidents.
 
@@ -22,9 +37,9 @@ In THIS exercise, we will add a **search page** so that a user can type all or p
 
 **4. All files are in:** *final_app*
 
-**5. Our Flask app file is:** *presidents.py* **Open it in Atom.**
+**5. Our Flask app file (to be edited) is:** *presidents.py* **Open it in Atom.**
 
-**6. Our new template is** *search.html* **Open it in Atom too.**
+**6. Our new template (no changes needed) is** *search.html* **Open it in Atom too.**
 
 ## Examine the search-page template
 
@@ -94,7 +109,7 @@ Don't forget to close the `block` that was opened with `{% block content %}`.
 
 ### Add more import statements
 
-The app file is *presidents.py*, and it begins with imports, as usual for Flask:
+The app file to be modified is *presidents.py*, and it begins with imports, as usual for Flask:
 
 ```python
 from flask import Flask, render_template
@@ -223,7 +238,7 @@ for president in presidents_list:
 
 **ACTION 8:** Add those lines above the `return` statement.
 
-We're stealing some stuff from another route function &mdash; the one that made a list of all the presidents in the previous app (where there was no search function). We need to make a list because if the user searches for a string like `James`, she's going to get *more than one* president.
+We're stealing some stuff from another route function, `index()` &mdash; the one that makes a list of all the presidents in the original app (where there was no search function). We need to make a list here too, because if the user searches for a string like `James`, she's going to get *more than one* president.
 
 Let's leap forward a little and show the function with some other bits stolen from the `index()` function:
 
@@ -303,6 +318,8 @@ else:
     return the search page with a message (says sorry or says nothing)
 ```
 
+Think about it. For each of the three options, we will actually see a *different* Flask template in the browser.
+
 **ACTION 10: Add the following at the end of the function, REPLACING the current one-line return statement there.**
 
 ```python
@@ -326,13 +343,13 @@ message = "Sorry, no match was found."
 
 **ACTION 11: Add that line** after `pairs_list = zip(ids_list, name_list)`
 
-You can see the complete `search()` function [here](final_app/partial.py), lines 58-90. **NOTE** the indents &mdash; the final block of `return` statements is outdented from the `if request.method == "POST":` block of code!
+You can see the complete `search()` function [here](final_app/partial.py), lines 58-89. **NOTE** the indents &mdash; the final block of `return` statements is outdented from the `if request.method == "POST":` block of code!
 
 ## Conclusion
 
 The code you have written in *presidents.py* is complete in *partial.py* &mdash; you can run it at the bash prompt (`$`), with your virtualenv **activated**, with `python partial.py`
 
-For a slightly enhanced alternative version, run `python completed.py` &mdash; it adds four radio buttons to *template.html* (the same *template.html*, with no changes) and allows a user to search for presidents who:
+For a slightly enhanced alternative version, run `python completed.py` &mdash; it **adds four radio buttons** to *search.html* (the same *search.html*, with no changes) and allows a user to search for presidents who:
 
 1. Come from a given home state,
 2. Had a given occupation, or
@@ -343,9 +360,9 @@ The name search remains the same.
 To add this functionality, the following were added or changed:
 
 * One new property was added in the `SearchForm` class &mdash; `category`.
-* One new line was added to the `search()` function, in the `if request.method == "POST":` block &mdash; `category = request.form.get("category")`
-* In the `search()` function, the line `if text.lower() in president['President'].lower():` was changed to `if text.lower() in president[category].lower():`
+* One new line was added to the `search()` function, in the `if request.method == "POST":` block &mdash; <br>`category = request.form.get("category")`
+* In the `search()` function, the line `if text.lower() in president['President'].lower():` was changed to <br>`if text.lower() in president[category].lower():`
 
 THAT IS ALL.
 
-And just to repeat &mdash; the *search.html* template file is the same. No changes.
+And just to repeat &mdash; the *search.html* template file is **the same.** No changes.
