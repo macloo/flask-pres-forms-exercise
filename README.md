@@ -357,6 +357,8 @@ For a slightly enhanced alternative version, run `python completed.py` &mdash; i
 
 The name search remains the same.
 
+[Play with a working version of this app here.](https://presidents-flask.herokuapp.com/search)
+
 **To add this functionality,** the following were added or changed [in this app file](final_app/completed.py):
 
 * One new property was added in the `SearchForm` class &mdash; `category` (line 24).
