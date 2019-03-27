@@ -41,6 +41,8 @@ In THIS exercise, we will add a **search page** so that a user can type all or p
 
 **6. Our new template (no changes needed) is** *search.html* **Open it in Atom too.**
 
+[These instructions are on a slide to show in the classroom.](https://docs.google.com/presentation/d/1zggsJNcq2BHtVM_Q9_4u6oVm0jsGCx3WjAaJ5_vUMvA/edit?usp=sharing)
+
 ## Examine the search-page template
 
 Look at the template in Atom. The top lines are all Jinja2 directives.
