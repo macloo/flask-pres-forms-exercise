@@ -1,0 +1,30 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Search for Presidents
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-xl-12">
+
+			<h1 class="mt-5">Search for U.S. Presidents</h1>
+
+			<p class="lead">Select any president by name.</p>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-8 col-md-10 col-sm-12 alert alert-warning p-4">
+
+			{{ wtf.quick_form(form) }}
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}
