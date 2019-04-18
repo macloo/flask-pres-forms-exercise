@@ -20,6 +20,7 @@ For this exercise, you will need the following **installed** in a Python 3.x vir
    * [Determine what will be returned](#determine-what-will-be-returned)
    * [Three different return statements](#three-different-return-statements)
 * [Conclusion](#conclusion)
+* [Version Using a Select Menu in the Form](#version-using-a-select-menu-in-the-form)
 
 This exercise *builds on* [a previous one](https://github.com/macloo/flask-exercise), in which a Flask app read a CSV file with data about 45 U.S. presidents and built a separate page for each of them. Here, we begin with a completed version of that exercise.
 
@@ -370,3 +371,16 @@ The name search remains the same.
 THAT IS ALL.
 
 And just to repeat &mdash; the *search.html* template file is **the same.** No changes.
+
+## Version Using a Select Menu in the Form
+
+You might have wondered if we could put all the presidents' name in a `select` form control and use the (amazing) WTF `wtf.quick_form`. The answer is YES!
+
+The files that do this are:
+
+* [completed.py](final_app/select_menu_version.py)
+* [search2.py](final_app/templates/search2.html)
+
+Those are the ONLY files that are different for the `select` form control version of the presidents app.
+
+To run that version: `(env) $ python select_menu_version.py`
