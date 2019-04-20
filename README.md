@@ -378,8 +378,8 @@ You might have wondered if we could put all the presidents' names in a `select` 
 
 The files that do this are:
 
-* [select_menu_version.py.py](final_app/select_menu_version.py)
-* [search2.py](final_app/templates/search2.html)
+* [select_menu_version.py](final_app/select_menu_version.py)
+* [search2.html](final_app/templates/search2.html)
 
 Those are the ONLY files that are different for the `select` form control version of the presidents app.
 
